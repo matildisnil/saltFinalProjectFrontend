@@ -42,14 +42,13 @@ const Register = props => {
   
   return (
     <>
-    <form onSubmit = { submitRegistration } >
-	  <input type = "text" placeholder = "Username" required />
-	  <input type = "password" placeholder = "Password" required />
-	  <input type = "password" placeholder = "Repeat password" required />
-	  <input type = "submit" value = "Register" />
-	</form>
-	
-	<p>{messageToUser}</p>
+      <form onSubmit = { submitRegistration } >
+	      <input type = "text" placeholder = "Username" required />
+	      <input type = "password" placeholder = "Password" required />
+	      <input type = "password" placeholder = "Repeat password" required />
+	      <input type = "submit" value = "Register" />
+	    </form>
+	    <p>{messageToUser}</p>
 	</>
   );
 }

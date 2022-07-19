@@ -4,10 +4,24 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import "./App.css";
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HobbyBoard from './components/HobbyBoard';
+import { toggleStatus } from './redux/logSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
-const fetch = require('node-fetch');
+
+
+// const fetch = require('node-fetch');
 
 function App() {
+  const showState = state => state;
+
+  const something = useSelector(showState);
+  console.log(something, 'beforetoggle');
+  const dispatch = useDispatch();
+  dispatch(toggleStatus);
+  console.log(useSelector(showState), 'aftertoggle');
+
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -27,13 +41,13 @@ function App() {
   
   return (
     <>
-      <Register loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB }>
-	  </Register>
-      <Login loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB }>
-	  </Login>
-	  <Logout loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB }>
-	  </Logout>
-	</>
+      <Routes>
+        <Route path="/" element={ <Login loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
+        <Route path="register" element={ <Register loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
+        <Route path="hobbies" element={ <HobbyBoard loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} /> 
+        <Route path="logout" element={ <Logout loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
+      </Routes>
+	 </>
   );
 }
 

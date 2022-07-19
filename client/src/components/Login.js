@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 import { useState } from 'react';
+import Logout from './Logout';
 
 const Login = props => {
 	
@@ -33,7 +34,12 @@ const Login = props => {
     }
 
     if (props.loggedIn) {
-      return <p>You are logged in as {props.loggedIn}</p>;
+      return (
+      <>
+        <p>You are logged in as {props.loggedIn}</p>
+        <Logout loggedIn = { props.loggedIn } changeLoginStateCB = { props.changeLoginStateCB } />
+      </>
+      )
     }
 
     return (
@@ -43,6 +49,7 @@ const Login = props => {
         <input type = "password" placeholder = "Password" required/>
         <input type = "submit" value = "Log in" />
       </form>
+      <p>If you don't have an account, please register</p>
       <p>{errorMessage}</p>
       </>
     );
