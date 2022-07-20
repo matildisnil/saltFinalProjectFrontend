@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import { useState } from 'react';
-import Logout from './Logout';
+import Logout from '../Logout/Logout';
+import "./Login.css";
 
 const Login = props => {
 	

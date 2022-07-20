@@ -1,0 +1,17 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+    margin-bottom: 3em;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.navbar__element {
+    padding: 0.5em 1em;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    margin: 0 1em;
+    text-decoration: none;
+}

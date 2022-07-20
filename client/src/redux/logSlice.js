@@ -1,30 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  isLoggedIn: false
-}
+const initialState = false;
 
 export const logSlice = createSlice({
     name: 'loggedIn',
     initialState,
     reducers: {
       toggleStatus: state => !state,
-      toggleLoggedIn: (state, action) => {
-        if (action.payload) {
-          state = {
-            username: action.payload,
-            isLoggedIn: true
-          }
-        }
-        else {
-          state = {
-            isLoggedIn: false
-          }
-        }
-      }
+      toggleLoggedIn: (state, action) => action.payload
     },
 })
 
-export const { toggleStatus } = logSlice.actions;
+export const { toggleStatus, toggleLoggedIn } = logSlice.actions;
 export  default logSlice.reducer;
-

@@ -1,5 +1,6 @@
 import fetch from 'node-fetch'
 import { useState } from 'react';
+import "./Register.css";
 
 const Register = props => {
 
