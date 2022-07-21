@@ -1,14 +1,16 @@
 import React from 'react';
 import "./HobbyPage.css";
+import EventBoard from '../EventBoard/EventBoard';
 import { useParams, useNavigate } from 'react-router-dom';
 //import { useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import AddEvent from '../AddEvent/AddEvent';
 
 const HobbyPage = () => {
     const { hobbyParam } = useParams();
-    console.log(hobbyParam, 'hellogate');
 
     const [hobby, setHobby] = useState(null);
+    const [toggle, setToggle] = useState(false);
 
     const fetchHobby = async () => {
       const data = await fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/api/hobbies/${hobbyParam}`, {
@@ -21,6 +23,8 @@ const HobbyPage = () => {
       fetchHobby().then(data => setHobby(data.hobby));
       }, []);
 
+    const showForm = () => setToggle(true);
+
     // const location = useLocation();
     // // console.log(props, " props");
     // console.log(location, " useLocation Hook");
@@ -28,10 +32,14 @@ const HobbyPage = () => {
     // console.log(hobbyName, 'hobbygate')
 
     return (
-      <div>  
-        <h1>{hobby ? hobby.hobbyname : 'Loading'}</h1>
-        <p>{ hobby ? hobby.hobbydescription : 'Loading' }</p>
-      </div>
+      <>
+        <div>  
+          <h1>{hobby ? hobby.hobbyname : 'Loading'}</h1>
+          <p>{hobby ? hobby.hobbydescription : 'Loading'}</p>
+          <div onClick={showForm}>{toggle ? <AddEvent setToggle={setToggle} hobbyName={hobby.hobbyname} /> : 'Add new event'}</div>
+        </div>
+        {hobby ? <EventBoard hobbyName={hobby.hobbyname}/> : ''}
+      </>
   )
 };
 export default HobbyPage
