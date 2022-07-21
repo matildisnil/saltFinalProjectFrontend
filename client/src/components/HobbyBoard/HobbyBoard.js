@@ -5,7 +5,6 @@ import "./HobbyBoard.css";
 
 const HobbyBoard = () => {
   const [hobbies, setHobbies] = useState([]);
-  console.log(hobbies);
 
   const fetchHobbies = async () => {
     const data = await fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/api/hobbies`, {

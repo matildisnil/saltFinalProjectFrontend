@@ -5,8 +5,7 @@ import EventCard from '../EventCard/EventCard'
 
 const EventBoard = ({ hobbyName }) => {
   const [events, setEvents] = useState(null);
-  console.log(hobbyName, 'blablabla')
-
+  
   const fetchEvents = async () => {
     const data = await fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/api/events/${hobbyName}`, {
         credentials: 'include'
@@ -21,7 +20,8 @@ const EventBoard = ({ hobbyName }) => {
   return (
     <>
       { events ? 
-      <div className="hobbyBoard">{events.map(
+      <div className="hobbyBoard">
+        {events.map(
         (event, index) => 
           <EventCard 
             hobbyName={hobbyName}
@@ -30,7 +30,8 @@ const EventBoard = ({ hobbyName }) => {
             eventTime={event.eventtime}
             eventLocation={event.eventlocation}
             key={index} />
-      )} </div> : <div>Loading...</div>}
+        )} 
+      </div> : <div>Loading...</div>}
     </>
   )
 };

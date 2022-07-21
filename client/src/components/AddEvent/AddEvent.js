@@ -13,14 +13,12 @@ const AddEvent = ({ setToggle, hobbyName }) => {
       eventLocation: e.target.inputLocation.value,
       eventTime: e.target.inputTime.value
     }
-    console.log(inputObject);
+    const stringInput = JSON.stringify(inputObject);
     fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/api/events/${hobbyName}`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: inputObject,
-      credentials: 'include'
+      headers: { 'Content-Type': 'application/json', 'credentials': 'include' },
+      body: stringInput
     })
-
     setToggle(false);
   }
 
