@@ -5,6 +5,7 @@ import "./HobbyBoard.css";
 
 const HobbyBoard = () => {
   const [hobbies, setHobbies] = useState([]);
+  console.log(hobbies);
 
   const fetchHobbies = async () => {
     const data = await fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/api/hobbies`, {
@@ -19,7 +20,7 @@ const HobbyBoard = () => {
 
   return (
     <div> {
-    hobbies.length !== 0 ? 
+    hobbies && hobbies.length !== 0 ? 
     <div className="hobbyBoard">{hobbies.map(
       (hobby, index) => <HobbyCard hobbyname={hobby.hobbyname} hobbydescription={hobby.hobbydescription} key={index}/>
     )}</div> : 
