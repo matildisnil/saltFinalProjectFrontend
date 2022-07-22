@@ -23,20 +23,17 @@ const HobbyPage = () => {
       fetchHobby().then(data => setHobby(data.hobby));
       }, []);
 
-    const showForm = () => setToggle(true);
-
-    // const location = useLocation();
-    // // console.log(props, " props");
-    // console.log(location, " useLocation Hook");
-    // const hobbyName = location.state?.hobbyname;
-    // console.log(hobbyName, 'hobbygate')
-
+    const showForm = (e) => {
+      e.stopPropagation();
+      setToggle(true);
+    };
+    
     return (
       <>
-        <div>  
+        <div className='hobby-page-header'>  
           <h1>{hobby ? hobby.hobbyname : 'Loading'}</h1>
           <p>{hobby ? hobby.hobbydescription : 'Loading'}</p>
-          <div onClick={showForm}>{toggle ? <AddEvent setToggle={setToggle} hobbyName={hobby.hobbyname} /> : 'Add new event'}</div>
+          <div className='hobby-page-header__add-event' onClick={showForm}>{toggle ? <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> : 'Add new event'}</div>
         </div>
         {hobby ? <EventBoard hobbyName={hobby.hobbyname}/> : ''}
       </>

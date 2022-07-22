@@ -24,7 +24,6 @@ const Register = props => {
     .then(response => response.json())
     .then(data => {
       if ('error' in data) {
-        console.log(data);
         setMessageToUser(data.error.toString());
       }
 	  

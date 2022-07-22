@@ -2,11 +2,12 @@ import "./AddEvent.css";
 import React from 'react';
 import { useState } from 'react';
 
-const AddEvent = ({ setToggle, hobbyName }) => {
+const AddEvent = ({ toggle, setToggle, hobbyName }) => {
   const [eventInput, setEventInput] = useState({})
   
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
     const inputObject = {
       eventName: e.target.inputName.value,
       eventDescription: e.target.inputDescription.value,
@@ -14,24 +15,35 @@ const AddEvent = ({ setToggle, hobbyName }) => {
       eventTime: e.target.inputTime.value
     }
     const stringInput = JSON.stringify(inputObject);
-    fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/api/events/${hobbyName}`, {
+    await fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/api/events/${hobbyName}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'credentials': 'include' },
       body: stringInput
     })
     setToggle(false);
+    console.log(toggle, 'submitgate')
+    window.location.reload();
+  }
+
+  const closeButton = (e) => {
+    e.stopPropagation();
+    console.log('1111');
+    setToggle(false);
   }
 
   return (
     <div className="addevent">
-      <form onSubmit={submitHandler}>
-        <input placeholder="Event Name" name="inputName"/>
-        <input placeholder="Event Description" name="inputDescription"/>
-        <input placeholder="Event Location" name="inputLocation"/>
-        <input placeholder="Event Time" name="inputTime" type="datetime-local"/>
+      <form className='addevent__form' onSubmit={submitHandler} >
+        <h3>Add new Event</h3>
+        <input placeholder="Event Name" name="inputName" required/>
+        <input className='addevent__description' type='text' placeholder="Event Description" name="inputDescription" required/>
+        <input placeholder="Event Location" name="inputLocation" required/>
+        <input placeholder="Event Time" name="inputTime" type="datetime-local" required/>
         <button type="submit">Add event</button>
+        <button type='button' onClick={(e) => closeButton(e)}>Close</button>
       </form>
     </div>
+  
   )
 };
 

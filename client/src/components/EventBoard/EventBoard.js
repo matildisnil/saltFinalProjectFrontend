@@ -18,7 +18,7 @@ const EventBoard = ({ hobbyName }) => {
 
 
   return (
-    <>
+    <div className="eventboard">
       { events ? 
       <div className="hobbyBoard">
         {events.map(
@@ -32,7 +32,7 @@ const EventBoard = ({ hobbyName }) => {
             key={index} />
         )} 
       </div> : <div>Loading...</div>}
-    </>
+    </div>
   )
 };
 

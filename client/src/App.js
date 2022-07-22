@@ -10,33 +10,8 @@ import HobbyBoard from './components/HobbyBoard/HobbyBoard';
 import { toggleLoggedIn } from './redux/logSlice';
 import HobbyCard from './components/HobbyCard/HobbyCard'
 import HobbyPage from './components/HobbyPage/HobbyPage';
-// import { useDispatch, useSelector } from 'react-redux';
-
-
-
-// const fetch = require('node-fetch');
 
 function App() {
-  // const showState = state => state;
-  // const dispatch = useDispatch();
-
-  // const something = useSelector(showState);
-  // console.log(something, 'alex');
-
-  // // dispatch(toggleLoggedIn('Matilda'));
-  // // console.log(useSelector(showState), 'aftertoggle');
-  // // console.log('hello');
-
-  // const handleClickFunction = () => {
-  //   // const something = useSelector(showState);
-  //   console.log(something, 'beforetoggle');
-
-  //   dispatch(toggleLoggedIn('Matilda'));
-  //   setTimeout(() => console.log(something, 'aftertoggle'), 300);
-  //   // console.log('hello');
-  // }
-
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -56,7 +31,6 @@ function App() {
   return (
     <>
       <Header />
-      {/* <button onClick={handleClickFunction}>Does it Work?</button> */}
       <Routes>
         <Route path="/" element={ <Login loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
         <Route path="register" element={ <Register loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />

@@ -4,7 +4,7 @@ import "./EventCard.css";
 
 const EventCard = ({ hobbyName, eventName, eventDescription, eventTime, eventLocation }) => {
   return (
-    <div>
+    <div className="eventcard">
      <h3>{eventName}</h3>
      <p>Description: {eventDescription}</p>
      <p>When: {eventTime}</p>
