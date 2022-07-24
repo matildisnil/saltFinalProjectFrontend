@@ -5,12 +5,13 @@ import Logout from './components/Logout/Logout';
 import Header from './components/Header/Header'
 import "./App.css";
 import { useState } from 'react';
-import { Routes, Route, useParams } from 'react-router-dom';
+import { Routes, Route, useParams, Navigate } from 'react-router-dom';
 import HobbyBoard from './components/HobbyBoard/HobbyBoard';
 import { toggleLoggedIn } from './redux/logSlice';
 import HobbyCard from './components/HobbyCard/HobbyCard'
 import HobbyPage from './components/HobbyPage/HobbyPage';
 import REACT_APP_PATH_TO_SERVER from './environment';
+import Page404 from './components/Page404/Page404';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,6 +39,8 @@ function App() {
         <Route path="hobbies" element={ <HobbyBoard loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
         <Route path='hobbies/:hobbyParam' element={ <HobbyPage loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
         <Route path="logout" element={ <Logout loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
+        {/* If something breaks, I would suspect this. */}
+        <Route path="*" element={<Page404/>} />
       </Routes>
 	 </>
   );
