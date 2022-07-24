@@ -17,7 +17,7 @@ const Logout = props => {
     props.loggedIn ? 
     <form onSubmit = { submitLogout }>
       <input type = "submit" value = "Log out" />
-    </form> : ''
+    </form> : 'You are logged out'
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import "./HobbyPage.css";
 import EventBoard from '../EventBoard/EventBoard';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 //import { useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import AddEvent from '../AddEvent/AddEvent';
@@ -32,11 +32,13 @@ const HobbyPage = () => {
     return (
       <>
         <div className='hobby-page-header'>  
+        <Link to='../hobbies'>Back</Link>
           <h1>{hobby ? hobby.hobbyname : 'Loading'}</h1>
           <p>{hobby ? hobby.hobbydescription : 'Loading'}</p>
           <div className='hobby-page-header__add-event' onClick={showForm}>{toggle ? <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> : 'Add new event'}</div>
         </div>
         {hobby ? <EventBoard hobbyName={hobby.hobbyname}/> : ''}
+        <Link to='../hobbies'>Back</Link>
       </>
   )
 };

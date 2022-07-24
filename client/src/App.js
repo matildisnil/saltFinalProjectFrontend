@@ -31,7 +31,7 @@ function App() {
   
   return (
     <>
-      <Header />
+      <Header loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB }/>
       <Routes>
         <Route path="/" element={ <Login loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
         <Route path="register" element={ <Register loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />

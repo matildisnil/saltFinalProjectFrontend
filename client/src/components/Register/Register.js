@@ -1,10 +1,11 @@
 import fetch from 'node-fetch'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./Register.css";
 import REACT_APP_PATH_TO_SERVER from '../../environment'
 
 const Register = props => {
-
+  const navigate = useNavigate();
   const submitRegistration = event => {
     event.preventDefault();
     if (event.target.childNodes[1].value !== event.target.childNodes[2].value) {
@@ -31,6 +32,7 @@ const Register = props => {
 	  if ('message' in data) {
         console.log(data);
         setMessageToUser(data.message.toString());
+        navigate('/',{state:{justRegistered: true}});
 	  }
     });
   }
