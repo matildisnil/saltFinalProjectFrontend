@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
 import { useState } from 'react';
 import "./Register.css";
+import REACT_APP_PATH_TO_SERVER from '../../environment'
 
 const Register = props => {
 
@@ -16,7 +17,7 @@ const Register = props => {
 	  password: event.target.childNodes[1].value
     });
 
-	fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/register`, {
+	fetch(`${REACT_APP_PATH_TO_SERVER}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: formData

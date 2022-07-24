@@ -1,11 +1,12 @@
 import fetch from 'node-fetch';
 import "./Logout.css";
+import REACT_APP_PATH_TO_SERVER from '../../environment'
 
 const Logout = props => {
 
   const submitLogout = event => {
     event.preventDefault();
-    fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/logout`, {
+    fetch(`${REACT_APP_PATH_TO_SERVER}/logout`, {
       method: 'POST',
 		  credentials: 'include',
     })

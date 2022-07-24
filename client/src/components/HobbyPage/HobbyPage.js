@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 //import { useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import AddEvent from '../AddEvent/AddEvent';
+import REACT_APP_PATH_TO_SERVER from '../../environment'
 
 const HobbyPage = () => {
     const { hobbyParam } = useParams();
@@ -13,7 +14,7 @@ const HobbyPage = () => {
     const [toggle, setToggle] = useState(false);
 
     const fetchHobby = async () => {
-      const data = await fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/api/hobbies/${hobbyParam}`, {
+      const data = await fetch(`${REACT_APP_PATH_TO_SERVER}/api/hobbies/${hobbyParam}`, {
         credentials: 'include'
       });
       return await data.json();

@@ -2,12 +2,13 @@ import React from 'react';
 import "./EventBoard.css";
 import { useEffect, useState } from 'react';
 import EventCard from '../EventCard/EventCard'
+import REACT_APP_PATH_TO_SERVER from '../../environment'
 
 const EventBoard = ({ hobbyName }) => {
   const [events, setEvents] = useState(null);
   
   const fetchEvents = async () => {
-    const data = await fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/api/events/${hobbyName}`, {
+    const data = await fetch(`${REACT_APP_PATH_TO_SERVER}/api/events/${hobbyName}`, {
         credentials: 'include'
     });
     return await data.json();

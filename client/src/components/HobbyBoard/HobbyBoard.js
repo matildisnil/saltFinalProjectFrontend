@@ -2,12 +2,13 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import HobbyCard from '../HobbyCard/HobbyCard';
 import "./HobbyBoard.css";
+import REACT_APP_PATH_TO_SERVER from '../../environment'
 
 const HobbyBoard = () => {
   const [hobbies, setHobbies] = useState([]);
 
   const fetchHobbies = async () => {
-    const data = await fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/api/hobbies`, {
+    const data = await fetch(`${REACT_APP_PATH_TO_SERVER}/api/hobbies`, {
       credentials: 'include'
     });
     return await data.json();

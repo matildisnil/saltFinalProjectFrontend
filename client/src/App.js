@@ -10,12 +10,13 @@ import HobbyBoard from './components/HobbyBoard/HobbyBoard';
 import { toggleLoggedIn } from './redux/logSlice';
 import HobbyCard from './components/HobbyCard/HobbyCard'
 import HobbyPage from './components/HobbyPage/HobbyPage';
+import REACT_APP_PATH_TO_SERVER from './environment';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/login`, {credentials: 'include'})
+    fetch(`${REACT_APP_PATH_TO_SERVER}/login`, {credentials: 'include'})
     .then(response => response.json())
     .then(data => {
       if (data.loggedIn === true) {

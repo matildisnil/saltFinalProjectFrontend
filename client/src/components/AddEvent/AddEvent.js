@@ -1,6 +1,7 @@
 import "./AddEvent.css";
 import React from 'react';
 import { useState } from 'react';
+import REACT_APP_PATH_TO_SERVER from '../../environment'
 
 const AddEvent = ({ toggle, setToggle, hobbyName }) => {
   const [eventInput, setEventInput] = useState({})
@@ -15,7 +16,7 @@ const AddEvent = ({ toggle, setToggle, hobbyName }) => {
       eventTime: e.target.inputTime.value
     }
     const stringInput = JSON.stringify(inputObject);
-    await fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/api/events/${hobbyName}`, {
+    await fetch(`${REACT_APP_PATH_TO_SERVER}/api/events/${hobbyName}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'credentials': 'include' },
       body: stringInput

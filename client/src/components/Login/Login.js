@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import { useState } from 'react';
 import Logout from '../Logout/Logout';
 import "./Login.css";
+import REACT_APP_PATH_TO_SERVER from '../../environment'
 
 const Login = props => {
 	
@@ -15,7 +16,7 @@ const Login = props => {
       });
 
       event.preventDefault();
-      fetch(`${process.env.REACT_APP_PATH_TO_SERVER}/login`, {
+      fetch(`${REACT_APP_PATH_TO_SERVER}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: formData,
