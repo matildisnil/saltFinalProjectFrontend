@@ -4,11 +4,12 @@ import { useState } from 'react';
 import REACT_APP_PATH_TO_SERVER from '../../environment'
 
 const AddEvent = ({ toggle, setToggle, hobbyName }) => {
-  const [eventInput, setEventInput] = useState({})
+  // const [eventInput, setEventInput] = useState({})
   
   const submitHandler = async (e) => {
     e.preventDefault();
     e.stopPropagation();
+    console.log('are we getting here?')
     const inputObject = {
       eventName: e.target.inputName.value,
       eventDescription: e.target.inputDescription.value,
@@ -16,9 +17,11 @@ const AddEvent = ({ toggle, setToggle, hobbyName }) => {
       eventTime: e.target.inputTime.value
     }
     const stringInput = JSON.stringify(inputObject);
+    console.log(REACT_APP_PATH_TO_SERVER);
     await fetch(`${REACT_APP_PATH_TO_SERVER}/api/events/${hobbyName}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'credentials': 'include' },
+      credentials: 'include',
       body: stringInput
     })
     setToggle(false);
