@@ -52,7 +52,10 @@ const HobbyPage = () => {
         <Link to='../hobbies'>Back</Link>
           <h1>{hobby ? hobby.hobbyname : fetchStatus}</h1>
           <p>{hobby ? hobby.hobbydescription : ''}</p>
-          <div className='hobby-page-header__add-event' onClick={showForm}>{toggle ? <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> : 'Add new event'}</div>
+          {!toggle ?
+          <div className='hobby-page-header__add-event' onClick={showForm}>Add new Event</div> :
+          <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> }
+          {/* <div className='hobby-page-header__add-event' onClick={showForm}>{toggle ? <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> : 'Add new event'}</div> */}
         </div>
         {hobby ? <EventBoard hobbyName={hobby.hobbyname}/> : ''}
         <Link to='../hobbies'>Back</Link>
