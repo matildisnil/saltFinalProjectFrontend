@@ -26,7 +26,9 @@ const HobbyBoard = () => {
         // if (data.loggedIn === false)
         return data;
       })
-      .then(data => setHobbies(data.hobbies));
+      .then(data => {
+        const sortedHobbies = data.hobbies.sort((a, b) => a.hobbyname.localeCompare(b.hobbyname));
+        setHobbies(sortedHobbies)});
     }, []);
 
   return (
