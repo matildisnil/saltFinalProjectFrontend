@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import AddEvent from '../AddEvent/AddEvent';
 import REACT_APP_PATH_TO_SERVER from '../../environment'
 
-const HobbyPage = () => {
+const HobbyPage = ({ loggedIn }) => {
     const { hobbyParam } = useParams();
     const navigate = useNavigate();
 
@@ -52,12 +52,13 @@ const HobbyPage = () => {
         <Link to='../hobbies'>Back</Link>
           <h1>{hobby ? hobby.hobbyname : fetchStatus}</h1>
           <p>{hobby ? hobby.hobbydescription : ''}</p>
+          <div className='hobby-page-header__add-event' onClick={showForm}>Add new Event</div>
           {!toggle ?
-          <div className='hobby-page-header__add-event' onClick={showForm}>Add new Event</div> :
+          '' :
           <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> }
           {/* <div className='hobby-page-header__add-event' onClick={showForm}>{toggle ? <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> : 'Add new event'}</div> */}
         </div>
-        {hobby ? <EventBoard hobbyName={hobby.hobbyname}/> : ''}
+        {hobby ? <EventBoard hobbyName={hobby.hobbyname} loggedIn={loggedIn}/> : ''}
         <Link to='../hobbies'>Back</Link>
       </>
   )

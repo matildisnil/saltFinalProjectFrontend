@@ -29,7 +29,7 @@ function App() {
   const changeLoginStateCB = (newState) => {
     setIsLoggedIn(newState);
   };
-  
+
   return (
     <>
       <Header loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB }/>

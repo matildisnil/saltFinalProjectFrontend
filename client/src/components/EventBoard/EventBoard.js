@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import EventCard from '../EventCard/EventCard'
 import REACT_APP_PATH_TO_SERVER from '../../environment'
 
-const EventBoard = ({ hobbyName }) => {
+const EventBoard = ({ hobbyName, loggedIn }) => {
   const [events, setEvents] = useState(null);
   
   const fetchEvents = async () => {
@@ -13,10 +13,12 @@ const EventBoard = ({ hobbyName }) => {
     });
     return await data.json();
   }
-  useEffect(() => {
-    fetchEvents().then(data => setEvents(data.events));
-    }, []);
 
+  useEffect(() => {
+    fetchEvents().then(data => {
+      setEvents(data.events)
+    });
+    }, []);
 
   return (
     <div className="eventboard">
@@ -25,11 +27,14 @@ const EventBoard = ({ hobbyName }) => {
         {events.map(
         (event, index) => 
           <EventCard 
+            loggedIn={loggedIn}
             hobbyName={hobbyName}
             eventName={event.eventname}
             eventDescription={event.eventdescription}
             eventTime={event.eventtime}
             eventLocation={event.eventlocation}
+            creator={event.creator}
+            id={event.id}
             key={index} />
         )} 
       </div> : <div>Loading...</div>}
