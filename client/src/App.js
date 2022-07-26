@@ -12,6 +12,10 @@ import HobbyCard from './components/HobbyCard/HobbyCard'
 import HobbyPage from './components/HobbyPage/HobbyPage';
 import REACT_APP_PATH_TO_SERVER from './environment';
 import Page404 from './components/Page404/Page404';
+// import "primereact/resources/themes/bootstrap4-light-purple/theme.css";  //theme
+import 'primereact/resources/themes/mdc-light-deeppurple/theme.css';
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,7 +38,7 @@ function App() {
     <>
       <Header loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB }/>
       <Routes>
-        <Route path="/" element={ <Login loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
+        <Route className='login-route' path="/" element={ <Login loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
         <Route path="register" element={ <Register loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
         <Route path="hobbies" element={ <HobbyBoard loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />
         <Route path='hobbies/:hobbyParam' element={ <HobbyPage loggedIn = { isLoggedIn } changeLoginStateCB = { changeLoginStateCB } />} />

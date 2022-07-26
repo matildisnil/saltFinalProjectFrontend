@@ -2,9 +2,11 @@ import "./AddEvent.css";
 import React from 'react';
 import { useState } from 'react';
 import REACT_APP_PATH_TO_SERVER from '../../environment'
+import { Calendar } from 'primereact/calendar';
 
 const AddEvent = ({ toggle, setToggle, hobbyName }) => {
   // const [eventInput, setEventInput] = useState({})
+  const [date7, setDate7] = useState(undefined);
   
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -42,7 +44,10 @@ const AddEvent = ({ toggle, setToggle, hobbyName }) => {
         <input placeholder="Event Name" name="inputName" required/>
         <input className='addevent__description' type='text' placeholder="Event Description" name="inputDescription" required/>
         <input placeholder="Event Location" name="inputLocation" required/>
-        <input placeholder="Event Time" name="inputTime" type="datetime-local" required/>
+        {/* <input placeholder="Event Time" name="inputTime" type="datetime-local" required/> */}
+        
+        <Calendar id="time24" name='inputTime' value={date7} onChange={(e) => setDate7(e.value)} showTime />
+        
         <button type="submit">Add event</button>
         <button type='button' onClick={(e) => closeButton(e)}>Close</button>
       </form>

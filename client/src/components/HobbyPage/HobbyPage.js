@@ -6,6 +6,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import AddEvent from '../AddEvent/AddEvent';
 import REACT_APP_PATH_TO_SERVER from '../../environment'
+import { Button } from 'primereact/button';
 
 const HobbyPage = ({ loggedIn }) => {
     const { hobbyParam } = useParams();
@@ -52,7 +53,8 @@ const HobbyPage = ({ loggedIn }) => {
         <Link to='../hobbies'>Back</Link>
           <h1>{hobby ? hobby.hobbyname : fetchStatus}</h1>
           <p>{hobby ? hobby.hobbydescription : ''}</p>
-          <div className='hobby-page-header__add-event' onClick={showForm}>Add new Event</div>
+          {/* <div className='hobby-page-header__add-event' onClick={showForm}>Add new Event</div> */}
+          <Button label="Add new Event" className="p-button-raised" onClick={showForm} />
           {!toggle ?
           '' :
           <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> }
