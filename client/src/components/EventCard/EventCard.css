@@ -6,5 +6,8 @@
     width: 90%;
     margin: 0.5em auto;
     padding: 1em;
-    background-color: rgba(95, 158, 160, 0.471);
+}
+
+.eventcard__button {
+  margin: 0 2em;
 }

@@ -50,7 +50,9 @@ const HobbyPage = ({ loggedIn }) => {
     return (
       <>
         <div className='hobby-page-header'>  
-        <Link to='../hobbies'>Back</Link>
+        <Link className='backbutton' to='../hobbies'>
+          <Button label="Back" className="p-button-text" />
+        </Link>
           <h1>{hobby ? hobby.hobbyname : fetchStatus}</h1>
           <p>{hobby ? hobby.hobbydescription : ''}</p>
           {/* <div className='hobby-page-header__add-event' onClick={showForm}>Add new Event</div> */}
@@ -61,7 +63,9 @@ const HobbyPage = ({ loggedIn }) => {
           {/* <div className='hobby-page-header__add-event' onClick={showForm}>{toggle ? <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> : 'Add new event'}</div> */}
         </div>
         {hobby ? <EventBoard hobbyName={hobby.hobbyname} loggedIn={loggedIn}/> : ''}
-        <Link to='../hobbies'>Back</Link>
+        <Link className='backbutton' to='../hobbies'>
+          <Button label="Back" className="p-button-text" />
+        </Link>
       </>
   )
 };
