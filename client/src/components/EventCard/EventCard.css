@@ -8,6 +8,6 @@
     padding: 1em;
 }
 
-.eventcard__button {
-  margin: 0 2em;
+.p-card-content > * {
+  padding: 0.2em 0;
 }

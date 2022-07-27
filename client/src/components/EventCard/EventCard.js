@@ -39,43 +39,28 @@ const EventCard = ({ hobbyName, eventName, eventDescription, eventTime, eventLoc
     setToggleUpdate(true);
   };
 
+  const unformattedDate = new Date(eventTime);
+  const twoDigitMinutes = unformattedDate.toLocaleString("en-GB", {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'});
+
   // new stuff 
   const footer = (
-      <span>
-
-{loggedIn === creator ? <>
-       <Button onClick={deleteEvent} style={{marginRight: '.25em'}} >Delete event</Button>
-       <Button onClick={showUpdate} >Edit</Button>
-     </> : ''}
-     {!toggleUpdate ? '' : <UpdateEvent toggleUpdate={toggleUpdate} setToggleUpdate={setToggleUpdate} eventObj={eventObj} /> }
-      </span>
+    <span className='eventcard__footer'>
+      {loggedIn === creator ?
+        <>
+        <Button onClick={deleteEvent} className="eventcard__delete" style={{marginRight: '.25em'}} >Delete event</Button>
+        <Button onClick={showUpdate} >Edit</Button>
+        </> : ''}
+      {!toggleUpdate ? '' : <UpdateEvent toggleUpdate={toggleUpdate} setToggleUpdate={setToggleUpdate} eventObj={eventObj} /> }
+    </span>
   );
 
-  return (
-    
-    <Card className="eventcard" title={eventName} subTitle={eventDescription} style={{ width: '87%' }} footer={footer}>
-    {/* <p className="m-0" style={{lineHeight: '1.5'}}></p> */}
-     <p>When: {eventTime}</p>
+  return ( 
+    <Card className="eventcard" title={eventName} subTitle={eventDescription} style={{ width: '86%' }} footer={footer}>
+     <p>When: {twoDigitMinutes}</p>
      <p>Location: {eventLocation}</p>
-     <p>{hobbyName}</p>
-     <p>{creator}</p>
+     <p>Organiser: {creator}</p>
     </Card>
-
-    // <div className="eventcard">
-    //  <h3>{eventName}</h3>
-    //  <p>Description: {eventDescription}</p>
-    //  <p>When: {eventTime}</p>
-    //  <p>Location: {eventLocation}</p>
-    //  <p>{hobbyName}</p>
-    //  <p>{creator}</p>
-    //  {loggedIn === creator ? <>
-    //    <button onClick={deleteEvent} >Delete event</button>
-    //    <button onClick={showUpdate}>Edit</button>
-    //  </> : ''}
-    //  {!toggleUpdate ? '' : <UpdateEvent toggleUpdate={toggleUpdate} setToggleUpdate={setToggleUpdate} eventObj={eventObj} /> }
-    // </div>
   )
-
 };
 
 export default EventCard;

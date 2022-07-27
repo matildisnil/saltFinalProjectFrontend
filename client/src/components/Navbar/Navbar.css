@@ -17,3 +17,11 @@
     margin: 0 1em; */
     text-decoration: none;
 }
+
+.navbar__logout-button {
+    margin: auto 1em;
+}
+
+.navbar__right-button {
+    margin-left: 1em;
+}

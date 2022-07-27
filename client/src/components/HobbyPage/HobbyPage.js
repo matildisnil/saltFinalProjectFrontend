@@ -48,25 +48,32 @@ const HobbyPage = ({ loggedIn }) => {
     };
     
     return (
+      // style={{ backgroundImage:`url(${image})`,backgroundRepeat:"no-repeat" }}
       <>
-        <div className='hobby-page-header'>  
-        <Link className='backbutton' to='../hobbies'>
-          <Button label="Back" className="p-button-text" />
-        </Link>
-          <h1>{hobby ? hobby.hobbyname : fetchStatus}</h1>
-          <p>{hobby ? hobby.hobbydescription : ''}</p>
-          {/* <div className='hobby-page-header__add-event' onClick={showForm}>Add new Event</div> */}
-          <Button label="Add new Event" className="p-button-raised" onClick={showForm} />
-          {!toggle ?
-          '' :
-          <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> }
-          {/* <div className='hobby-page-header__add-event' onClick={showForm}>{toggle ? <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> : 'Add new event'}</div> */}
+      <div className='hobby-page-header'>
+      <div className='hobby-page-header__title'>
+        <h1>{hobby ? hobby.hobbyname : fetchStatus}</h1>
+        <p>{hobby ? hobby.hobbydescription : ''}</p>  
+      </div>
+      <div className='hobby-page__add-back-btn'>
+        <div>
+          <Button label="Add new Event" className="p-button-raised hobby-page__add-button" style={{marginLeft:'0'}} onClick={showForm} />
         </div>
-        {hobby ? <EventBoard hobbyName={hobby.hobbyname} loggedIn={loggedIn}/> : ''}
         <Link className='backbutton' to='../hobbies'>
-          <Button label="Back" className="p-button-text" />
+          <Button label="Back" className="p-button-raised" />
         </Link>
+        </div> 
+      </div>
+        {!toggle ? '' : <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> }
+        {hobby ? <EventBoard hobbyName={hobby.hobbyname} loggedIn={loggedIn}/> : ''}
+      <div className='bottom-back-btn'>
+        <Link className='backbutton' to='../hobbies'>
+          <Button label="Back" className="p-button-raised" />
+        </Link>
+      </div>
       </>
   )
 };
+// style={{ backgroundImage:`url(${hobby?.hobbyimage || 'https://images.unsplash.com/photo-1544829728-e5cb9eedc20e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'})`,backgroundRepeat:"no-repeat", backgroundAttachment: "fixed" }}
+
 export default HobbyPage

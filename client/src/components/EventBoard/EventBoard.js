@@ -16,18 +16,18 @@ const EventBoard = ({ hobbyName, loggedIn }) => {
 
   useEffect(() => {
     fetchEvents().then(data => {
-      const sortedEvents = data.events.sort((a,b) => {
+      const sortedEvents = data?.events?.sort((a,b) => {
         // Turn your strings into dates, and then subtract them
         // to get a value that is either negative, positive, or zero.
         return new Date(a.eventtime) - new Date(b.eventtime);
       });
-      const filteredEvents = sortedEvents.filter((event) => {
+      const filteredEvents = sortedEvents?.filter((event) => {
         const now = new Date();
         return new Date(event.eventtime)>= now;
       })
       
       setEvents(filteredEvents);
-    });
+    }).catch(err => console.log(err));
     }, []);
 
   return (

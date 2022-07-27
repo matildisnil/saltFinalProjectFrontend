@@ -20,12 +20,12 @@ const Navbar = ({ loggedIn, changeLoginStateCB }) => {
         <div className='navbar'>
         <h1>Hobby Hippo</h1>
         { loggedIn ? 
-          <div>
+          <div className="navbar__buttons">
             <Link className='navbar__element' to='./hobbies'>
               <Button label="Hobbies" className="p-button-raised" />
             </Link>
             <Link onClick={clickedLogout} className='navbar__element' to='/'>
-              <Button label="Logout" className="p-button-raised" />
+              <Button label="Logout" className="p-button-raised navbar__right-button" style={{ marginLeft: '1em' }} />
             </Link>
           </div>
           :
@@ -34,7 +34,7 @@ const Navbar = ({ loggedIn, changeLoginStateCB }) => {
             <Button label="Login" className="p-button-raised" />
           </Link>
           <Link className='navbar__element' to='./register'> 
-            <Button label="Register" className="p-button-raised" />
+            <Button label="Register" className="p-button-raised" style={{ marginLeft: '1em' }} />
           </Link>
         </div>
         }
