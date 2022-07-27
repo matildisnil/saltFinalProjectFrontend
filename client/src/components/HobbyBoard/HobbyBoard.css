@@ -1,5 +1,10 @@
 .hobbyBoard {
-  display: flex;
+  display:flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 auto;
+}
+
+.hobby-board-wrap {
+  padding-bottom: 18em;
 }

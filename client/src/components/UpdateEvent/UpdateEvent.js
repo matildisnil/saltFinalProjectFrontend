@@ -18,7 +18,6 @@ const UpdateEvent = ({ toggleUpdate, setToggleUpdate, eventObj }) => {
   const editHandler = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('are we getting here?')
     const inputObject = {
       eventName: e.target.inputName.value,
       eventDescription: e.target.inputDescription.value,
@@ -27,7 +26,7 @@ const UpdateEvent = ({ toggleUpdate, setToggleUpdate, eventObj }) => {
       creator: eventObj.creator
     }
     const stringInput = JSON.stringify(inputObject);
-    console.log(REACT_APP_PATH_TO_SERVER);
+    // console.log(REACT_APP_PATH_TO_SERVER);
     await fetch(`${REACT_APP_PATH_TO_SERVER}/api/events/${eventObj.hobbyName}/${eventObj.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'credentials': 'include' },
@@ -42,20 +41,6 @@ const UpdateEvent = ({ toggleUpdate, setToggleUpdate, eventObj }) => {
     e.stopPropagation();
     setToggleUpdate(false);
   }
-
-  // return (
-  //   <div className="addevent">
-  //     <form className='addevent__form' onSubmit={editHandler}>
-  //       <h3>Edit Event</h3>
-  //       <input defaultValue={eventObj.eventName} name="inputName" required/>
-  //       <input className='addevent__description' type='text' defaultValue={eventObj.eventDescription} name="inputDescription" required/>
-  //       <input defaultValue={eventObj.eventLocation} name="inputLocation" required/>
-  //       <input defaultValue={eventObj.eventTime.slice(0,16)} name="inputTime" type="datetime-local" required/>
-  //       <button type="submit">Update event</button>
-  //       <button type='button' onClick={(e) => closeButton(e)}>Close</button>
-  //     </form>
-  //   </div>
-  // )
 
   return (
     <div className="editevent">
@@ -78,12 +63,11 @@ const UpdateEvent = ({ toggleUpdate, setToggleUpdate, eventObj }) => {
           <Calendar className="editevent__input" id="time24" name='inputTime' value={date7} onChange={(e) => setDate7(e.value)} showTime required />
           <label htmlFor="inputTime">New Date and Time</label>
         </span>
+        <Button type='button' label="Close" className="p-button-outlined addevent__input" onClick={(e) => closeButton(e)} />
         <Button type='submit' label="Edit event" className="p-button-raised addevent__input" />
-        <Button type='submit' label="Close" className="p-button-outlined addevent__input" onClick={(e) => closeButton(e)} />    
       </form>
     </div>
   )
-
 };
 
 export default UpdateEvent;

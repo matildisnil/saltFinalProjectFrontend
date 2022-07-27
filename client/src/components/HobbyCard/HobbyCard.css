@@ -23,3 +23,7 @@
   margin: 1em;
   width: '10em';
 }
+
+.hobbycard__image {
+  height: 10em;
+}

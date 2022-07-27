@@ -21,9 +21,7 @@ const EventCard = ({ hobbyName, eventName, eventDescription, eventTime, eventLoc
   }
 
   const deleteEvent = async () => {
-    console.log(creator);
     const stringInput = JSON.stringify({creator: creator});
-    console.log(stringInput);
     await fetch(`${REACT_APP_PATH_TO_SERVER}/api/events/${hobbyName}/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json', 'credentials': 'include' },

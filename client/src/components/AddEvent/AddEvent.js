@@ -17,7 +17,6 @@ const AddEvent = ({ toggle, setToggle, hobbyName }) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('are we getting here?')
     const inputObject = {
       eventName: e.target.inputName.value,
       eventDescription: e.target.inputDescription.value,
@@ -25,7 +24,7 @@ const AddEvent = ({ toggle, setToggle, hobbyName }) => {
       eventTime: e.target.inputTime.value
     }
     const stringInput = JSON.stringify(inputObject);
-    console.log(REACT_APP_PATH_TO_SERVER);
+    // console.log(REACT_APP_PATH_TO_SERVER);
     await fetch(`${REACT_APP_PATH_TO_SERVER}/api/events/${hobbyName}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'credentials': 'include' },
@@ -33,18 +32,19 @@ const AddEvent = ({ toggle, setToggle, hobbyName }) => {
       body: stringInput
     })
     setToggle(false);
-    console.log(toggle, 'submitgate')
     window.location.reload();
   }
 
   const closeButton = (e) => {
     e.stopPropagation();
-    console.log('1111');
     setToggle(false);
   }
 
   const current = new Date();
   const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}`;
+
+  const unformattedDate = new Date();
+  const twoDigitMinutes = unformattedDate.toLocaleString("en-GB", {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'});
 
 
   return (
@@ -66,9 +66,9 @@ const AddEvent = ({ toggle, setToggle, hobbyName }) => {
       {/* <input placeholder="Event Time" name="inputTime" type="datetime-local" required/> */}
         <span className="p-float-label">   
           <Calendar className="addevent__input" id="time24" name='inputTime' value={date7} onChange={(e) => setDate7(e.value)} showTime required />
-          <label htmlFor="inputTime">{date}</label>
+          {<label htmlFor="inputTime">{twoDigitMinutes}</label>}
         </span>
-        <Button type='submit' label="Close" className="p-button-outlined addevent__input" onClick={(e) => closeButton(e)} />    
+        <Button type='button' label="Close" className="p-button-outlined addevent__input" onClick={(e) => closeButton(e)} />
         <Button type='submit' label="Add event" className="p-button-raised addevent__input" />
       </form>
     </div>

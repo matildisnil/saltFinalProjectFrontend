@@ -27,7 +27,7 @@ const EventBoard = ({ hobbyName, loggedIn }) => {
       })
       
       setEvents(filteredEvents);
-    }).catch(err => console.log(err));
+    });
     }, []);
 
   return (
@@ -47,7 +47,7 @@ const EventBoard = ({ hobbyName, loggedIn }) => {
             id={event.id}
             key={index} />
         )} 
-      </div> : <div>Loading...</div>}
+      </div> : <div></div>}
     </div>
   )
 };

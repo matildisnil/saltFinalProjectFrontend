@@ -9,6 +9,7 @@
     background: linear-gradient(90deg, rgba(30,28,66,1) 0%, rgba(44,9,121,1) 43%, rgba(96,92,119,1) 100%);
 }
 
+
 .navbar__element {
     /* padding: 0.5em 1em;
     border: 1px solid black;
@@ -23,5 +24,5 @@
 }
 
 .navbar__right-button {
-    margin-left: 1em;
+    margin-left: 1em !important;
 }

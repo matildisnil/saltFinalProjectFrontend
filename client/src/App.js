@@ -12,6 +12,8 @@ import HobbyCard from './components/HobbyCard/HobbyCard'
 import HobbyPage from './components/HobbyPage/HobbyPage';
 import REACT_APP_PATH_TO_SERVER from './environment';
 import Page404 from './components/Page404/Page404';
+import Footer from './components/Footer/Footer';
+
 // import "primereact/resources/themes/bootstrap4-light-purple/theme.css";  //theme
 import 'primereact/resources/themes/mdc-light-deeppurple/theme.css';
 import "primereact/resources/primereact.min.css";                  //core css
@@ -46,6 +48,7 @@ function App() {
         {/* If something breaks, I would suspect this. */}
         <Route path="*" element={<Page404/>} />
       </Routes>
+      <Footer />
 	 </>
   );
 }

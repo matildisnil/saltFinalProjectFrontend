@@ -1,5 +1,5 @@
-
 .hobby-page-header {
+  opacity: 1;
   width: 86%;
   margin: 0.5em auto;
   
@@ -8,6 +8,7 @@
 .hobby-page-header__title {
   display: flex;
   flex-direction: column;
+  font-weight: bold;
 }
 
 .hobby-page-header__title > p {

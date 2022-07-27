@@ -38,7 +38,6 @@ const Register = props => {
       }
 	  
 	  if ('message' in data) {
-        console.log(data);
         setMessageToUser(data.message.toString());
         navigate('/',{state:{justRegistered: true}});
 	  }
@@ -53,12 +52,6 @@ const Register = props => {
   
   return (
     <>
-      {/* <form onSubmit = { submitRegistration } >
-	      <input type = "text" placeholder = "Username" required />
-	      <input type = "password" placeholder = "Password" required />
-	      <input type = "password" placeholder = "Repeat password" required />
-	      <input type = "submit" value = "Register" />
-	    </form> */}
       <div className='register'>
       <form className='register-form' onSubmit = { submitRegistration }>
         <span className="p-float-label">
@@ -66,11 +59,11 @@ const Register = props => {
           <label htmlFor="username">Username</label>
         </span> 
         <span className="p-float-label">
-          <Password value={value3} name='password' onChange={(e) => setValue3(e.target.value)} />
+          <Password value={value3} name='password' onChange={(e) => setValue3(e.target.value)} feedback={false} />
           <label htmlFor="password">Password</label>
         </span>
         <span className="p-float-label">
-          <Password value={value4} name='repeatPassword' onChange={(e) => setValue4(e.target.value)} />
+          <Password value={value4} name='repeatPassword' onChange={(e) => setValue4(e.target.value)} feedback={false} />
           <label htmlFor="repeatPassword">Repeat Password</label>
         </span>
         <Button type='submit' label="Register" className="p-button-raised" />

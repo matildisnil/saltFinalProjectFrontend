@@ -32,10 +32,10 @@ const HobbyBoard = () => {
     }, []);
 
   return (
-    <div> {
+    <div className='hobby-board-wrap'> {
     hobbies && hobbies.length !== 0 ? 
     <div className="hobbyBoard">{hobbies.map(
-      (hobby, index) => <HobbyCard hobbyname={hobby.hobbyname} hobbydescription={hobby.hobbydescription} key={index}/>
+      (hobby, index) => <HobbyCard hobbyname={hobby.hobbyname} hobbydescription={hobby.hobbydescription} hobbyimage={hobby.hobbyimage} key={index}/>
     )}</div> : 
     <div>Loading...</div>}
     </div>
