@@ -64,7 +64,7 @@ const UpdateEvent = ({ toggleUpdate, setToggleUpdate, eventObj }) => {
           <label htmlFor="inputTime">New Date and Time</label>
         </span>
         <Button type='button' label="Close" className="p-button-outlined addevent__input" onClick={(e) => closeButton(e)} />
-        <Button type='submit' label="Edit event" className="p-button-raised addevent__input" />
+        <Button type='submit' label="Save your changes" className="p-button-raised addevent__input" />
       </form>
     </div>
   )
