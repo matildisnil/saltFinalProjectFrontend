@@ -44,7 +44,8 @@ const AddEvent = ({ toggle, setToggle, hobbyName }) => {
   const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}`;
 
   const unformattedDate = new Date();
-  const twoDigitMinutes = unformattedDate.toLocaleString("en-GB", {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'});
+  const twoDigitMinutes = unformattedDate.toLocaleString("fr", {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'});
+  // const twoDigitMinutes = unformattedDate.toLocaleString("en-GB", {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'});
 
 
   return (
