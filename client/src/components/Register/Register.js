@@ -1,14 +1,14 @@
-import fetch from 'node-fetch'
+import fetch from 'node-fetch';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Register.css";
-import REACT_APP_PATH_TO_SERVER from '../../environment'
+import REACT_APP_PATH_TO_SERVER from '../../environment';
 import { Password } from 'primereact/password';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 
 const Register = props => {
-  // Prime react component
+  // Prime react needs these
   const [value2, setValue2] = useState('');
   const [value3, setValue3] = useState('');
   const [value4, setValue4] = useState('');
@@ -18,7 +18,7 @@ const Register = props => {
     event.preventDefault();
     if (event.target.password.value !== event.target.repeatPassword.value) {
       setMessageToUser('The passwords do not match!');
-	  return;
+	    return;
     }
 
     const formData = JSON.stringify({
@@ -42,7 +42,7 @@ const Register = props => {
         navigate('/',{state:{justRegistered: true}});
 	  }
     });
-  }
+  };
   
   const [messageToUser, setMessageToUser] = useState('');
   
@@ -72,6 +72,6 @@ const Register = props => {
       </div>
 	</>
   );
-}
+};
 
 export default Register;

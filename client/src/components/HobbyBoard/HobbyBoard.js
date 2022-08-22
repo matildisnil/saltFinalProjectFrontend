@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HobbyCard from '../HobbyCard/HobbyCard';
 import "./HobbyBoard.css";
-import REACT_APP_PATH_TO_SERVER from '../../environment'
+import REACT_APP_PATH_TO_SERVER from '../../environment';
 
 const HobbyBoard = () => {
   const navigate = useNavigate();
@@ -18,12 +18,11 @@ const HobbyBoard = () => {
       navigate('/');
     }
     return await data.json();
-  }
+  };
 
    useEffect(() => {
     fetchHobbies()
       .then(data => {
-        // if (data.loggedIn === false)
         return data;
       })
       .then(data => {
@@ -35,11 +34,15 @@ const HobbyBoard = () => {
     <div className='hobby-board-wrap'> {
     hobbies && hobbies.length !== 0 ? 
     <div className="hobbyBoard">{hobbies.map(
-      (hobby, index) => <HobbyCard hobbyname={hobby.hobbyname} hobbydescription={hobby.hobbydescription} hobbyimage={hobby.hobbyimage} key={index}/>
+      (hobby, index) => 
+      <HobbyCard 
+        hobbyname={hobby.hobbyname} 
+        hobbyimage={hobby.hobbyimage} 
+        key={index} />
     )}</div> : 
     <div>Loading...</div>}
     </div>
-  )
-}
+  );
+};
 
-export default HobbyBoard
+export default HobbyBoard;

@@ -7,4 +7,8 @@
     background: linear-gradient(90deg, rgba(30,28,66,1) 0%, rgba(44,9,121,1) 43%, rgba(96,92,119,1) 100%);
     color: white;
     padding: 1em;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 2.5rem;   
 }

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
-import REACT_APP_PATH_TO_SERVER from '../../environment'
+import REACT_APP_PATH_TO_SERVER from '../../environment';
 import { Button } from 'primereact/button';
 import { GiKnot } from 'react-icons/gi';
 
@@ -14,10 +14,10 @@ const Navbar = ({ loggedIn, changeLoginStateCB }) => {
 	  .then(() => {
       changeLoginStateCB(false)
     });
-  }
+  };
     
     return (
-        <div className='navbar'>
+      <div className='navbar'>
         <h1 className='navbar__heading'>Activity<GiKnot  size={20} />knot</h1>
         { loggedIn ? 
           <div className="navbar__buttons">
@@ -38,8 +38,8 @@ const Navbar = ({ loggedIn, changeLoginStateCB }) => {
           </Link>
         </div>
         }
-        </div>
-    )
-}
+      </div>
+  );
+};
 
 export default Navbar;

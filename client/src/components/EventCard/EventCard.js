@@ -18,7 +18,7 @@ const EventCard = ({ hobbyName, eventName, eventDescription, eventTime, eventLoc
     eventLocation,
     creator,
     id
-  }
+  };
 
   const deleteEvent = async () => {
     const stringInput = JSON.stringify({creator: creator});
@@ -28,9 +28,9 @@ const EventCard = ({ hobbyName, eventName, eventDescription, eventTime, eventLoc
       credentials: 'include',
       body: stringInput
     });
-    // really should be changed into updating a state
+    // really should be changed into updating a state when we have time
     window.location.reload();
-  }
+  };
 
   const showUpdate = (e) => {
     e.stopPropagation();
@@ -38,9 +38,15 @@ const EventCard = ({ hobbyName, eventName, eventDescription, eventTime, eventLoc
   };
 
   const unformattedDate = new Date(eventTime);
-  const twoDigitMinutes = unformattedDate.toLocaleString("en-GB", {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'});
+  const twoDigitMinutes = unformattedDate.toLocaleString(
+    "en-GB", 
+    {year: 'numeric', 
+    month: 'numeric', 
+    day: 'numeric', 
+    hour: '2-digit', 
+    minute: '2-digit'}
+  );
 
-  // new stuff 
   const footer = (
     <span className='eventcard__footer'>
       {loggedIn === creator ?
@@ -58,7 +64,7 @@ const EventCard = ({ hobbyName, eventName, eventDescription, eventTime, eventLoc
      <p>Location: {eventLocation}</p>
      <p>Organiser: {creator}</p>
     </Card>
-  )
+  );
 };
 
 export default EventCard;

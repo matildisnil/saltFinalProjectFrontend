@@ -1,8 +1,8 @@
 import React from 'react';
 import "./EventBoard.css";
 import { useEffect, useState } from 'react';
-import EventCard from '../EventCard/EventCard'
-import REACT_APP_PATH_TO_SERVER from '../../environment'
+import EventCard from '../EventCard/EventCard';
+import REACT_APP_PATH_TO_SERVER from '../../environment';
 
 const EventBoard = ({ hobbyName, loggedIn }) => {
   const [events, setEvents] = useState(null);
@@ -12,7 +12,7 @@ const EventBoard = ({ hobbyName, loggedIn }) => {
         credentials: 'include'
     });
     return await data.json();
-  }
+  };
 
   useEffect(() => {
     fetchEvents().then(data => {
@@ -49,7 +49,7 @@ const EventBoard = ({ hobbyName, loggedIn }) => {
         )} 
       </div> : <div></div>}
     </div>
-  )
+  );
 };
 
 export default EventBoard

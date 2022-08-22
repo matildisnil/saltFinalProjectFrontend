@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import "./Logout.css";
-import REACT_APP_PATH_TO_SERVER from '../../environment'
+import REACT_APP_PATH_TO_SERVER from '../../environment';
 
 const Logout = props => {
 
@@ -11,7 +11,7 @@ const Logout = props => {
 		  credentials: 'include',
     })
 	  .then(() => props.changeLoginStateCB(false));
-  }
+  };
     
   return (
     props.loggedIn ? 

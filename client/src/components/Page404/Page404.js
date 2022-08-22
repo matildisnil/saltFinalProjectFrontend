@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import "./Page404.css";
 
 const Page404 = () => {
   return (
-    <div>404 Page is missing</div>
-  )
-}
+    <h1 className="not-found-text">404 Page is missing</h1>
+  );
+};
 
-export default Page404
+export default Page404;
