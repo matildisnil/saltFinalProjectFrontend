@@ -21,9 +21,21 @@
 .hobbycard {
   text-decoration: none;
   margin: 1em;
-  width: '10em';
+  width: 15em;
 }
 
 .hobbycard__image {
   height: 10em;
+}
+
+@media only screen and (max-width: 560px) {
+  .hobbycard {
+    text-decoration: none;
+    margin: 0.5em;
+    width: 23em;
+  }
+  
+  .hobbycard__image {
+    height: 16em;
+  } 
 }

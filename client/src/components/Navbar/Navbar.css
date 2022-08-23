@@ -11,18 +11,17 @@
 
 
 .navbar__element {
-    /* padding: 0.5em 1em;
-    border: 1px solid black;
-    border-radius: 10px;
-    color: black;
-    margin: 0 1em; */
     text-decoration: none;
 }
 
-.navbar__logout-button {
-    margin: auto 1em;
-}
 
-.navbar__right-button {
-    margin-left: 1em !important;
+@media only screen and (max-width: 470px) {
+    .navbar {
+        flex-direction: column;
+        margin-bottom: 1em;
+    }
+    
+    .navbar__heading {
+        margin: 0.3em;
+    }
 }

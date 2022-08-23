@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import "./Logout.css";
 import REACT_APP_PATH_TO_SERVER from '../../environment';
+import { Button } from 'primereact/button';
 
 const Logout = props => {
 
@@ -14,10 +15,12 @@ const Logout = props => {
   };
     
   return (
-    props.loggedIn ? 
-    <form onSubmit = { submitLogout }>
-      <input type = "submit" value = "Log out" />
-    </form> : 'You are logged out'
+    <div className="logout">
+    {props.loggedIn ? 
+      <form onSubmit = { submitLogout }>
+        <Button className="p-button-raised" type = "submit" value = "Log out" label="Log out"  />
+      </form> : 'You are logged out'}
+    </div>
   );
 };
 

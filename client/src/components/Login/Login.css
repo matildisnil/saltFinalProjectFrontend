@@ -12,10 +12,6 @@
     padding-bottom: 12.8em;
 }
 
-.p-button-raised {
-   /*  margin: 1em !important; */
-}
-
 .login-form {
     display:flex;
     flex-direction: column;
@@ -25,4 +21,26 @@
 
 .login-form > * {
     margin: 1em 0;
+}
+
+.loggedin__container {
+    margin-left: 2em !important;
+}
+
+@media only screen and (max-width: 600px) {
+   
+    .login {
+        width: 80%;
+        margin: 1em auto;
+        padding: 3.5em 0;
+    }
+
+    .login__text {
+        font-size: 0.8em;
+        margin: 2em 2em ;
+    } 
+
+    .p-button-raised {
+        margin-top: 1em !important;
+     }
 }

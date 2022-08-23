@@ -49,10 +49,10 @@ const Login = props => {
     // in some wierd scenarios when we shut down the server you end up here
     if (props.loggedIn) {
       return (
-      <>
+      <div className="loggedin__container">
         <p>You are logged in as {props.loggedIn}</p>
         <Logout loggedIn = { props.loggedIn } changeLoginStateCB = { props.changeLoginStateCB } />
-      </>
+      </div>
       );
     }
 
@@ -70,7 +70,7 @@ const Login = props => {
           <Button type='submit' label="Log in" className="p-button-raised" />
           {location.state?.justRegistered ? 
             <p>You have registered, you can now log in.</p> :
-            <p> If you don't have an account, please 
+            <p className='login__text'> If you don't have an account, please 
               <Link to='./register'> register </Link>
             </p>}
           <p>{errorMessage}</p>

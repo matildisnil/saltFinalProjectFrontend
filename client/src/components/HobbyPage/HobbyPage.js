@@ -43,10 +43,11 @@ const HobbyPage = ({ loggedIn }) => {
     
     return (
       <>
+      {!toggle ? '' : <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> }
       <div className='hobby-page-header'>
       <div className='hobby-page-header__title'>
         <h1>{hobby ? hobby.hobbyname : fetchStatus}</h1>
-        <p>{hobby ? hobby.hobbydescription : ''}</p>  
+        <p className='description'>{hobby ? hobby.hobbydescription : ''}</p>  
       </div>
       <div className='hobby-page__add-back-btn'>
         <div>
@@ -64,7 +65,6 @@ const HobbyPage = ({ loggedIn }) => {
         </Link>
         </div> 
       </div>
-        {!toggle ? '' : <AddEvent toggle={toggle} setToggle={setToggle} hobbyName={hobby.hobbyname} /> }
         {hobby ? <EventBoard hobbyName={hobby.hobbyname} loggedIn={loggedIn}/> : ''}
       
       {hobby ?

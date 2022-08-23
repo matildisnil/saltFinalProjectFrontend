@@ -24,10 +24,6 @@
   padding: 1em;
 }
 
-.hobby-page__add-button {
-  margin: 1em auto !important;
-}
-
 .hobby-page__add-event-button {
   display:flex;
   justify-content: center;
@@ -51,4 +47,13 @@
   display:flex;
   justify-content: center;
   padding: 2em 0;
+  margin-top: 1em;
 }
+
+@media only screen and (max-width: 390px) {
+  .description{
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+}
+

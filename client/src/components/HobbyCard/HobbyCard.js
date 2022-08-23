@@ -17,7 +17,7 @@ const HobbyCard = ({ hobbyname, hobbyimage }) => {
 
   return (
     <Link className="hobbycard" to={hobbypage}  >
-      <Card title={hobbyname}  style={{ width: '15em' }} header={header} />
+      <Card title={hobbyname} header={header} />
     </Link>
   );
 };

@@ -31,10 +31,10 @@ const Navbar = ({ loggedIn, changeLoginStateCB }) => {
           :
           <div>
           <Link className='navbar__element' to='/'>
-            <Button label="Login" className="p-button-raised" />
+            <Button label="Login" className="p-button-raised" style={{ width: '90px' }} />
           </Link>
           <Link className='navbar__element' to='./register'> 
-            <Button label="Register" className="p-button-raised" style={{ marginLeft: '1em' }} />
+            <Button label="Register" className="p-button-raised" style={{ marginLeft: '1em', width: '90px'  }} />
           </Link>
         </div>
         }
