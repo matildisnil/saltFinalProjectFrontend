@@ -1,0 +1,46 @@
+.login {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: 5em auto;
+    padding: 4em 0;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 5px;
+    background-color: white;
+    padding-bottom: 12.8em;
+}
+
+.login-form {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form > * {
+    margin: 1em 0;
+}
+
+.loggedin__container {
+    margin-left: 2em !important;
+}
+
+@media only screen and (max-width: 600px) {
+   
+    .login {
+        width: 80%;
+        margin: 1em auto;
+        padding: 3.5em 0;
+    }
+
+    .login__text {
+        font-size: 0.8em;
+        margin: 2em 2em ;
+    } 
+
+    .p-button-raised {
+        margin-top: 1em !important;
+     }
+}

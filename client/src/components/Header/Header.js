@@ -7,7 +7,7 @@ const Header = ({loggedIn, changeLoginStateCB}) => {
     <header className='header'>
       <Navbar loggedIn = {loggedIn} changeLoginStateCB = {changeLoginStateCB}/>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

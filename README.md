@@ -12,22 +12,22 @@ They can create, edit and delete events for different hobbies. For each hobby th
 React.js
 PrimeReact
 ### Backend
-Node.js
-Express
-PostgreSQL
+Node.js  
+Express  
+PostgreSQL  
 ### Deploment
-Heroku
+Heroku  
 ElephantSQL
 
 ## How to run the project from your computer
 ### Frontend 
-cd client 
-npm i
-npm run start
+cd client  
+npm i   
+npm run start  
 
 ### Backend
-npm i
-npm run dev
+npm i  
+npm run dev  
 
 ## Environment variables
 We are using the dotenv package to handle our environment variables. You would have to set up a smiliar database. These are the variables:

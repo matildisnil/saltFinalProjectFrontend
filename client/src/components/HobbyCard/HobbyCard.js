@@ -1,24 +1,25 @@
 import React from 'react';
 import "./HobbyCard.css";
 import { Link } from 'react-router-dom';
+import { Card } from 'primereact/card';
 
-const HobbyCard = ({ hobbyname, hobbydescription }) => {
+const HobbyCard = ({ hobbyname, hobbyimage }) => {
 
   const hobbypage = hobbyname.toLowerCase();
+  
+  const header = (
+    <img 
+      className="hobbycard__image" 
+      alt={hobbyname}
+      src={hobbyimage} 
+      onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} />
+);
 
   return (
-
-    <Link to={hobbypage}  >
-    <div className="hobby">
-      <img src="https://picsum.photos/75"/>
-      <h3 >{hobbyname}</h3>
-    </div>
+    <Link className="hobbycard" to={hobbypage}  >
+      <Card title={hobbyname} header={header} />
     </Link>
-  )
-}
+  );
+};
 
-export default HobbyCard
-
-// state={{ data: data }} 
-
-// state={{hobbyname:hobbyname}} 
+export default HobbyCard;
