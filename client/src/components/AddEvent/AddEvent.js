@@ -34,6 +34,7 @@ const AddEvent = ({ toggle, setToggle, hobbyName }) => {
     window.location.reload();
   };
 
+  // This button closes pop-up
   const closeButton = (e) => {
     e.stopPropagation();
     setToggle(false);
